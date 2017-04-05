@@ -15,7 +15,7 @@ class Config implements \ArrayAccess
     use ArrayAccessTrait;
 
     /**
-     * 配置信息
+     * 配置信息.
      *
      * @var array
      */
@@ -25,7 +25,9 @@ class Config implements \ArrayAccess
      * Config constructor.
      *
      * @description 方法说明
+     *
      * @author @author yangyifan <yangyifanphp@gmail.com>
+     *
      * @param array $config
      */
     public function __construct(array $config)
@@ -34,26 +36,27 @@ class Config implements \ArrayAccess
     }
 
     /**
-     * 获取配置
+     * 获取配置.
      *
      * @author @author yangyifan <yangyifanphp@gmail.com>
+     *
      * @return mixed
      */
     public function get($name = null)
     {
-        if ( !is_null($name) && array_key_exists($name, $this->config)) {
+        if (!is_null($name) && array_key_exists($name, $this->config)) {
             return $this->config[$name];
         }
-
-        return null;
     }
 
     /**
-     * 设置配置信息
+     * 设置配置信息.
      *
      * @param string $name
      * @param string $value
+     *
      * @author @author yangyifan <yangyifanphp@gmail.com>
+     *
      * @return Config
      */
     public function set($name, $value)
@@ -64,7 +67,7 @@ class Config implements \ArrayAccess
     }
 
     /**
-     * 移除某个单元
+     * 移除某个单元.
      *
      * @param $name
      */
@@ -74,9 +77,10 @@ class Config implements \ArrayAccess
     }
 
     /**
-     * 判断 key 是否存在
+     * 判断 key 是否存在.
      *
      * @param $name
+     *
      * @return bool
      */
     public function has($name)
@@ -87,16 +91,16 @@ class Config implements \ArrayAccess
     /**
      * @param string $name
      */
-    function __get($name)
+    public function __get($name)
     {
         return $this->get($name);
     }
 
     /**
      * @param string $name
-     * @param mixed $value
+     * @param mixed  $value
      */
-    function __set($name, $value)
+    public function __set($name, $value)
     {
         return $this->set($name, $value);
     }
@@ -104,7 +108,7 @@ class Config implements \ArrayAccess
     /**
      * @param string $name
      */
-    function __isset($name)
+    public function __isset($name)
     {
         return $this->has($name);
     }
@@ -112,10 +116,8 @@ class Config implements \ArrayAccess
     /**
      * @param string $name
      */
-    function __unset($name)
+    public function __unset($name)
     {
         $this->remove($name);
     }
-
-
 }

@@ -9,12 +9,11 @@
 // +----------------------------------------------------------------------
 
 use PHPUnit\Framework\TestCase;
-use Yangyifan\Library\UtilityLibrary;
 
 class ConfigTest extends TestCase
 {
     /**
-     * 配置信息
+     * 配置信息.
      *
      * @var array
      */
@@ -31,7 +30,7 @@ class ConfigTest extends TestCase
 
     public static function tearDownAfterClass()
     {
-        self::$config = NULL;
+        self::$config = null;
     }
 
     // 测试 全部方法
